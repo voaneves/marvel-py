@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+{% block content %}
+
+
+{% if characters %}
+    <table class="table table-striped table-condensed table-responsive">
+        <thead>
+            <tr>
+                <th width="20%">Name</th>
+                <th width="70%">Description</th>
+                <th width="10%">Stories</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for character in characters %}
+            <tr>
+                <td>{{ character.name }}</td>
+                <td>{{ character.description }}</td>
+                <td><a href = "{{ url_for('view_stories', character_id = character.id, character_name = character.name) }}">Read more...</a></td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+{% block content %}
+
+
+{% if stories %}
+    <table class="table table-striped table-condensed table-responsive">
+        <thead>
+            <tr>
+                <th width="30%">Title</th>
+                <th width="20%">Type</th>
+                <th width="50%">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for story in stories %}
+            <tr>
+                <td>{{ story.title }}</td>
+                <td>{{ story.type }}</td>
+                <td>{{ story.description }}</td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}
